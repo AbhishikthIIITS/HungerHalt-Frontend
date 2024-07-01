@@ -12,8 +12,6 @@ export const cuisineList = [
     "Punjabi",
     "Gujarati",
     "Rajasthani",
-    "Kerala",
-    "American",
     "Korean",
     "French",
     "BBQ",
