@@ -16,7 +16,6 @@ export const cuisineList = [
     "French",
     "BBQ",
     "Cafe",
-    "Salads",
     "Vegetarian",
     "Gluten-Free",
     "Dairy-Free",
