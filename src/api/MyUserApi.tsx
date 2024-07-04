@@ -77,14 +77,12 @@ export const useCreateMyUser = () => {
     };
 };
 
-
 type updateMyUserRequest = {
     name: string;
     address: string;
     city: string;
     country: string;
 }
-
 
 export const useUpdateMyUser = () => {
     const { getAccessTokenSilently } = useAuth0();
@@ -115,7 +113,7 @@ export const useUpdateMyUser = () => {
         error, 
         reset 
     } = useMutation(updateMyUserRequest);
-
+ 
     if(isSuccess){
         toast.success("User profile updated!");
     }
