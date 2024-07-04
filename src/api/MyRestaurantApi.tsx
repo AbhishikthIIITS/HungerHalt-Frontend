@@ -93,3 +93,25 @@ export const useCreateMyRestaurant = () => {
 
     return { createRestaurant, isLoading, error };
 };
+
+export const useUpdateRestaurant = () => {
+    const { getAccessTokenSilently } = useAuth0();
+
+    const updatetRestaurantRequest = async(restaurantFormdata: FormData)=>{
+        const accessToken = await getAccessTokenSilently();
+
+        const response = await fetch(`${API_BASE_URL}/api/my/restaurant`,{
+            method: "PUT",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+            body: restaurantFormdata
+        })
+
+        if(!response) {
+            throw new Error("Failed to update restaurant")
+        }
+
+        return response.json();
+    }
+}
