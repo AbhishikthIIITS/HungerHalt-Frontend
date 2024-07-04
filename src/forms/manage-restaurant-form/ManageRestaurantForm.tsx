@@ -11,7 +11,6 @@ import LoadingButton from "@/components/LoadingButton";
 import { Button } from "@/components/ui/button";
 import { Restaurant } from "@/types";
 import { useEffect } from "react";
-import { toast } from "sonner";
 
 const formSchema = z
   .object({

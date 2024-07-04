@@ -82,6 +82,9 @@ export const useCreateMyRestaurant = () => {
         {
             onSuccess: () => {
                 toast.success("Restaurant created successfully!");
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             },
             onError: (error: any) => {
                 const errorMessage = error?.message || "Unable to create restaurant";
@@ -94,10 +97,12 @@ export const useCreateMyRestaurant = () => {
     return { createRestaurant, isLoading, error };
 };
 
-export const useUpdateRestaurant = () => {
+export const useUpdateMyRestaurant = () => {
     const { getAccessTokenSilently } = useAuth0();
 
-    const updatetRestaurantRequest = async(restaurantFormdata: FormData)=>{
+    const updatetRestaurantRequest = async(
+        restaurantFormdata: FormData
+    ): Promise <Restaurant>=>{
         const accessToken = await getAccessTokenSilently();
 
         const response = await fetch(`${API_BASE_URL}/api/my/restaurant`,{
@@ -114,4 +119,23 @@ export const useUpdateRestaurant = () => {
 
         return response.json();
     }
+
+    const{
+        mutate: updateRestaurant, 
+        isLoading, 
+        error, 
+        isSuccess
+    } = useMutation(updatetRestaurantRequest);
+
+    if(isSuccess){
+        toast.success("Restaurant updated successfully!");
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+    }
+
+    if(error){
+        toast.error("Error: "+error.toString());
+    }
+    return{ updateRestaurant,isLoading};
 }
