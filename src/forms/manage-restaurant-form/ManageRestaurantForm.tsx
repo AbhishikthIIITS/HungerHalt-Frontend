@@ -36,8 +36,11 @@ const formSchema = z
     }),
     menuItems: z.array(
       z.object({
-        name: z.string().min(1, "name is required"),
-        price: z.coerce.number().min(1, "price is required"),
+        name: z.string().min(1, "Item name is required"),
+        price: z.coerce.number({
+          required_error: "estimated delivery time is required",
+          invalid_type_error: "must be a valid number",
+        }).min(1),
       })
     ),
     imageUrl: z.string().optional(),

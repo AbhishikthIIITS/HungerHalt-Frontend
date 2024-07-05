@@ -45,7 +45,7 @@ const MenuItemInput = ({ index, removeMenuItem, menuLength }: Props) => {
                         <FormControl>
                             <Input 
                                 {...field}
-                                placeholder="250.00"
+                                placeholder="250"
                                 className="bg-white"
                             /> 
                         </FormControl>
