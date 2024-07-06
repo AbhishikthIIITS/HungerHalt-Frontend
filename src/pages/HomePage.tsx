@@ -27,7 +27,8 @@ const HomePage = () => {
                 <span className="text-xl">Halt your hunger with just one click!</span>
                 <SearchBar
                     placeHolder="Search by City or Town"
-                    onSubmit={handleSearchSubmit}
+                    onSubmit={handleSearchSubmit} 
+                    searchQuery="" 
                 />
             </div>
             <div className="bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center mx-5">
