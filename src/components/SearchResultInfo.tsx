@@ -15,7 +15,6 @@ const SearchResultInfo = ({total, city}: Props) => {
                 className="ml-2 text-sm font-semibold underline cursor-pointer text-blue-500"
                 >Change Location</Link>
         </span>
-        insert sort dropdown
     </div>
   )
 }
