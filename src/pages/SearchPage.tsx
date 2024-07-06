@@ -2,8 +2,6 @@ import { useSearchRestaurants } from "@/api/RestaurantApi";
 import SearchResultInfo from "@/components/SearchResultInfo";
 import SearchResultCard from "@/components/SearchResultCard";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-import SearchBar, { SearchForm } from "@/components/SearchBar";
 
 
 
@@ -11,9 +9,6 @@ const SearchPage = () => {
   const { city } = useParams();
   const { results, isLoading } = useSearchRestaurants(city);
 
-  const setSearchQuery = (searchFormdata: SearchForm) => {
-
-  }
 
   if(isLoading) {
     return <span>Loading....</span>
