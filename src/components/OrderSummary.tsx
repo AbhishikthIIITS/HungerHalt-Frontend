@@ -42,7 +42,7 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart, increaseItemQuant
             <CardContent className="flex flex-col gap-5">
                 {cartItems.map((item) => (
                     <div className="flex justify-between">
-                        <span className="flex items-center">
+                        <span className="flex  items-center">
                             <button
                                 onClick={() => decreaseItemQuantity(item)}
                                 className = {`text-white bg-orange-400 w-4 h-4 flex items-center justify-center rounded-md text-xs leading-none mr-1
