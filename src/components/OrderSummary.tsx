@@ -45,12 +45,12 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart, increaseItemQuant
                         <span className="flex  items-center">
                             <button
                                 onClick={() => decreaseItemQuantity(item)}
-                                className = {`text-white bg-orange-400 w-4 h-4 flex items-center justify-center rounded-md text-xs leading-none mr-1
-                                                ${item.quantity === 0 
-                                                    ? 'opacity-50 cursor-not-allowed' 
-                                                    : ''
-                                                }`
-                                            }
+                                className={`text-white bg-orange-400 w-4 h-4 flex items-center justify-center rounded-md text-xs leading-none mr-1
+                                                ${item.quantity === 0
+                                        ? 'opacity-50 cursor-not-allowed'
+                                        : ''
+                                    }`
+                                }
                                 disabled={item.quantity === 0}
                             >
                                 -
@@ -64,7 +64,7 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart, increaseItemQuant
                             >
                                 +
                             </button>
-                            <span className="ml-2">{item.name}</span>
+                            <span className="ml-2 w-32 h-6 overflow-x-auto overflow-y-hidden whitespace-nowrap no-scrollbar">{item.name}</span>
                         </span>
 
                         <span className="flex items-center gap-1">

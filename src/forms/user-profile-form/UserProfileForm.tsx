@@ -16,25 +16,33 @@ const formSchema = z.object({
     country: z.string().min(1, "Country is required"),
 });
 
-type UserFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
     currentUser: User;
     onSave: (userProfileData: UserFormData) => void;
     isLoading: boolean;
+    title?: string;
+    buttonText?: string;
 }
 
 
-const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
+const UserProfileForm = ({
+    onSave,
+    isLoading,
+    currentUser,
+    title = "User Profile",
+    buttonText = "Submit"
+}: Props) => {
     const form = useForm<UserFormData>({
         resolver: zodResolver(formSchema),
         defaultValues: currentUser,
     });
 
-    useEffect(()=>{
+    useEffect(() => {
         form.reset(currentUser);
-    }, [currentUser,form]);
-    
+    }, [currentUser, form]);
+
 
     return (
         <Form {...form}>
@@ -44,7 +52,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
             >
                 <div>
                     <h2 className="text-2xl font-bold">
-                        User Profile Form
+                        {title}
                     </h2>
                     <FormDescription>
                         View and change your profile information here
@@ -60,7 +68,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                             </FormLabel>
                             <FormControl>
                                 <Input {...field} disabled className="bg-white" />
-                                
+
                             </FormControl>
                         </FormItem>
                     )}
@@ -77,7 +85,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                             <FormControl>
                                 <Input {...field} className="bg-white" />
                             </FormControl>
-                            <FormMessage/>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -94,7 +102,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                                 <FormControl>
                                     <Input {...field} className="bg-white" />
                                 </FormControl>
-                                <FormMessage/>
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -109,7 +117,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                                 <FormControl>
                                     <Input {...field} className="bg-white" />
                                 </FormControl>
-                                <FormMessage/>
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -124,7 +132,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                                 <FormControl>
                                     <Input {...field} className="bg-white" />
                                 </FormControl>
-                                <FormMessage/>
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
@@ -133,7 +141,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
                     <LoadingButton />
                 ) : (
                     <Button type="submit" className="bg-orange-500">
-                        Submit
+                        {buttonText}
                     </Button>
                 )}
             </form>

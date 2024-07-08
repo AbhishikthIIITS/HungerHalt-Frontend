@@ -31,10 +31,10 @@ const HomePage = () => {
                 />
             </div>
             <div className="bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center mx-5">
-                <h3 className="text-3xl font-bold text-orange-500">Our Current Outlets:</h3>
+                <h3 className="text-3xl font-bold text-orange-500"> Some of our Popular Outlets:</h3>
                 <div className="flex justify-center">
                     <div className="flex flex-wrap gap-4 justify-center text-xl text-gray-500 w-full">
-                        {['Kakinada', 'Vijayawada', 'Vizag', 'Nellore', 'Guntur', 'Tada'].map(city => (
+                        {['Tada', 'Kakinada', 'Nellore', 'Vizag', 'Guntur','Vijayawada'].map(city => (
                             <button
                                 key={city}
                                 onClick={() => handleCityClick(city)}
