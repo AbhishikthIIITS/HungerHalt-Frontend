@@ -64,7 +64,7 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart, increaseItemQuant
                             >
                                 +
                             </button>
-                            <span className="ml-2 w-32 h-6 overflow-x-auto overflow-y-hidden whitespace-nowrap no-scrollbar">{item.name}</span>
+                            <span className="ml-2 flex">{item.name}</span>
                         </span>
 
                         <span className="flex items-center gap-1">

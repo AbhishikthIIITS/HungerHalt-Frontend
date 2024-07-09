@@ -34,7 +34,7 @@ const HomePage = () => {
                 <h3 className="text-3xl font-bold text-orange-500"> Some of our Popular Outlets:</h3>
                 <div className="flex justify-center">
                     <div className="flex flex-wrap gap-4 justify-center text-xl text-gray-500 w-full">
-                        {['Tada', 'Kakinada', 'Nellore', 'Vizag', 'Guntur','Vijayawada'].map(city => (
+                        {['Tada', 'Kakinada', 'Nellore','Vijayawada', 'Vizag', 'Guntur'].map(city => (
                             <button
                                 key={city}
                                 onClick={() => handleCityClick(city)}
