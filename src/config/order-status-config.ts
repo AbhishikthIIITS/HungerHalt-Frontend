@@ -8,8 +8,8 @@ type OrderStatusInfo = {
 
 export const ORDER_STATUS: OrderStatusInfo[] = [
     { 
-        label : "Placed", 
-        value: "placed", 
+        label : "Payment Failed", 
+        value: "payment failed", 
         progressValue: 0 
     },
     { 
