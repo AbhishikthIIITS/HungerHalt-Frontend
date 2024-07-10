@@ -44,9 +44,10 @@ export const useCreateMyRestaurant = () => {
         try {
 
             const accessToken = await getAccessTokenSilently();
+            console.log(accessToken)
             const userID = uuidv4();
             restaurantFormData.append('userId', userID);
-
+            console.log(restaurantFormData)
             const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
                 method: "POST",
                 headers: {
@@ -56,6 +57,7 @@ export const useCreateMyRestaurant = () => {
             });
 
             const responseData = await response.json();
+            
 
             if (!response.ok) {
                 console.error("Server Response:", responseData);

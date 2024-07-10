@@ -11,6 +11,7 @@ import LoadingButton from "@/components/LoadingButton";
 import { Button } from "@/components/ui/button";
 import { Restaurant } from "@/types";
 import { useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const formSchema = z
   .object({
@@ -112,6 +113,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       formData.append(`cuisines[${index}]`, cuisine);
     });
     formDataJson.menuItems.forEach((menuItem, index) => {
+      formData.append(`menuItems[${index}][_id]`, uuidv4().toString());
       formData.append(`menuItems[${index}][name]`, menuItem.name);
       formData.append(
         `menuItems[${index}][price]`,
@@ -123,6 +125,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       formData.append(`imageFile`, formDataJson.imageFile);
     }
 
+    console.log(formData)
     onSave(formData);
   };
 
