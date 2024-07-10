@@ -39,7 +39,7 @@ const OrderStatusDetail = ({order}: Props) => {
             Total
         </span>
         <span>
-            ₹{(order.totalAmount / 100).toFixed(2)}
+            ₹{(order.totalAmount /100).toFixed(2)}
         </span>
     </div>
   </div>
